@@ -16,6 +16,8 @@ Statisk nettsted for utleie av bil, båt, verktøy og snøfreser på uke eller s
 
 Samme innhold i markedsplass-stil etter mønster av bildelingstjenester: søkefelt i første skjerm (hva, fra, til, uke/sesong), tre fordeler, kort med spesifikasjons-chips og pris, «Sesongen nå», fire steg, «Hvorfor leie hos oss», garasjepanel, FAQ og bunntekst med kolonner. `v2/utstyr.html` er en resultatside med filtre. Åpnes på `/v2/`.
 
+Engelsk versjon av v2 ligger i `v2/en/` (samme fire sider). Språkvelgeren NO | EN i toppmenyen bytter til samme side på det andre språket; sidene har `hreflang`-lenker for søkemotorer. Plassholderne er på engelsk der: `[PRICE]`, `[ADDRESS]`, `[HOURS]`, `[PHONE]`, `[EMAIL]`, `[ORG NO]`, `[INSURER]`, `[AMOUNT]`, `[NUMBER]`, `[DATE]`, `[MODEL]`.
+
 ## Før lansering
 
 - Erstatt alle `[PRIS]`, `[ADRESSE]`, `[TID]`, `[TELEFON]`, `[E-POST]`, `[ORG.NR]`, `[MODELL]`, `[DATO]`, `[BELØP]`, `[ANTALL]`.
