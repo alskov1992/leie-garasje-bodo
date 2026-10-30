@@ -232,3 +232,11 @@ td.inc{color:var(--muted)}
 .hero.dark{background:var(--dark);color:#fff}
 .hero.dark .lead{color:var(--dark-muted)}
 .hero.dark .crumbs,.hero.dark .crumbs a{color:var(--ice)}
+
+/* Sketch illustrations */
+.illu-box{border-radius:10px;border:1px solid var(--line);background-color:#fff;background-image:radial-gradient(#D9DEE4 1px,transparent 1px);background-size:14px 14px;padding:10px 14px;display:flex;justify-content:center;align-items:center;min-height:150px}
+.illu-box.big{min-height:360px;border-radius:16px;padding:32px}
+.illu-box.dark{background-color:#2A3542;background-image:radial-gradient(#3A4654 1px,transparent 1px);border-color:#2A3542}
+.illu{width:100%;max-width:220px;height:auto;display:block}
+.illu-box.big .illu{max-width:440px}
+.hero .illu-box.big{min-height:400px}

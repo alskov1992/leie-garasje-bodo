@@ -15,7 +15,7 @@ Statisk nettsted for utleie av bil, båt, verktøy og snøfreser på uke eller s
 ## Før lansering
 
 - Erstatt alle `[PRIS]`, `[ADRESSE]`, `[TID]`, `[TELEFON]`, `[E-POST]`, `[ORG.NR]`, `[MODELL]`, `[DATO]`, `[BELØP]`, `[ANTALL]`.
-- Bytt `[FOTO: …]`-blokkene med egne bilder (`<img>`).
+- Illustrasjonene (skisse-stil, inline SVG) ligger i `assets/sketch-defs.html` og er limt inn øverst i hver side; bytt dem med egne bilder (`<img>`) om ønskelig.
 - Koble skjemaene i `priser.html` og `garasje.html` til Vipps Checkout / et skjema-backend; nå er de kun visuelle.
 - Bytt firmanavnet «Leie & Garasje Bodø» (plassholder) til det registrerte navnet.
 - Legg inn vilkår og personvern (lenkene i bunnteksten peker på `#`).
