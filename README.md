@@ -18,6 +18,28 @@ Samme innhold i markedsplass-stil etter mønster av bildelingstjenester: søkefe
 
 Engelsk versjon av v2 ligger i `v2/en/` (samme fire sider). Språkvelgeren NO | EN i toppmenyen bytter til samme side på det andre språket; sidene har `hreflang`-lenker for søkemotorer. Plassholderne er på engelsk der: `[PRICE]`, `[ADDRESS]`, `[HOURS]`, `[PHONE]`, `[EMAIL]`, `[ORG NO]`, `[INSURER]`, `[AMOUNT]`, `[NUMBER]`, `[DATE]`, `[MODEL]`.
 
+## Versjon 3 (`v3/`) – sesongdelt, tre språk
+
+Forsiden er delt i Vinter (nov–apr, mørk blå) og Sommer (mai–okt, grønn/sand). Valget styrer hvilke kort som vises, fargetemaet og abonnementsblokken. Tre språk – norsk, engelsk, russisk – uten egne sider: all tekst ligger i `v3/assets/i18n.js` (én nøkkel per tekst), og `v3/assets/app.js` bytter språk og sesong uten å laste siden på nytt. Valget huskes i nettleseren; `?lang=en&sesong=sommer` i adressen overstyrer. Illustrasjonene ligger som ett SVG-symbolark øverst i hver side (`v3/assets/pics.svg.html`).
+
+Sider: `index.html`, `utstyr.html` (kategorifilter + sesong), `priser.html` (tabell + bookingskjema), `garasje.html` (forespørselsskjema).
+
+### Hva som må kobles på før lansering
+
+| Funksjon | Hvor i koden | Hva som trengs |
+| --- | --- | --- |
+| Priser og «ledig fra» | `[PRIS]`, `[DATO]`, `[ANTALL]` i alle sider; `data-price="0"` på kortene i `utstyr.html` | Prisliste per utstyr (uke og sesong) og lagerbeholdning. Helst som én JSON-fil (`v3/assets/data.json`) som sidene leser – da oppdateres alt ett sted |
+| Bookingskjema | `v3/priser.html`, `#bookform` – `submit` logger i konsollen og viser en demo-dialog | Betalingsløsning: Vipps Checkout (krever Vipps-bedriftsavtale + API-nøkler) og/eller Stripe for kort. Og et sted bookingen lagres: enkleste er et bookingsystem med API (Booqable, Rentman, Sharefox – norsk) eller Airtable/Google Sheets via et lite endepunkt |
+| Tilgjengelighetskalender | Datofeltene i skjemaet er vanlige `<input type=date>` | Samme bookingsystem – det vet hvilke datoer som er opptatt |
+| Garasjeforespørsel | `v3/garasje.html`, `#garasjeform` – demo-dialog | E-postmottaker. Formspree eller Netlify Forms gir dette uten egen server; ellers samme backend som booking |
+| «Logg inn» | Lenke til `#` | BankID-innlogging (Signicat, Criipto) eller enklere: kun SMS-kode ved booking, ingen konto |
+| Sortering «pris, lav til høy» | `utstyr.html`, `#sortering` – virker når `data-price` er fylt | Priser fra punktet over |
+| Kart | `[KART]` i `index.html` | Adresse → Google Maps-embed eller OpenStreetMap-iframe |
+| Forsikring | `[FORSIKRINGSSELSKAP]`/`[INSURER]` i v2 | Navn på selskap og egenandel |
+| Bompenger | Tekst om AutoPASS | Avtale om AutoPASS-brikke i bilene og rutine for viderefakturering |
+| Språk | `v3/assets/i18n.js` | Gjennomlesing av engelsk og russisk av en som kjenner bransjen; nøkkelen `seo_title` styrer sidetittelen |
+| Domene | GitHub Pages på `alskov1992.github.io/leie-garasje-bodo/` | Eget domene (f.eks. `leiegarasje.no`): en `CNAME`-fil i repoet + DNS hos registraren |
+
 ## Før lansering
 
 - Erstatt alle `[PRIS]`, `[ADRESSE]`, `[TID]`, `[TELEFON]`, `[E-POST]`, `[ORG.NR]`, `[MODELL]`, `[DATO]`, `[BELØP]`, `[ANTALL]`.
